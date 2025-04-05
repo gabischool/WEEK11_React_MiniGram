@@ -1,0 +1,162 @@
+:root {
+  --instagram-blue: #0095f6;
+  --instagram-gradient: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  --border-color: #dbdbdb;
+  --text-primary: #262626;
+  --text-secondary: #8e8e8e;
+  --background: #fafafa;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  background-color: var(--background);
+  color: var(--text-primary);
+}
+
+.app {
+  min-height: 100vh;
+}
+
+.header {
+  background: white;
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-content {
+  max-width: 935px;
+  margin: 0 auto;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-title {
+  font-size: 24px;
+  font-weight: 600;
+  background: var(--instagram-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nav-icons {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.nav-button {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  color: var(--text-primary);
+  transition: opacity 0.2s;
+}
+
+.nav-button:hover {
+  opacity: 0.7;
+}
+
+.nav-button svg {
+  width: 24px;
+  height: 24px;
+}
+
+.post-list {
+  max-width: 470px;
+  margin: 24px auto;
+  padding: 0 20px;
+}
+
+.post {
+  background: white;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  margin-bottom: 24px;
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  padding: 14px;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--instagram-gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  margin-right: 12px;
+}
+
+.username {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.post-image {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.post-actions {
+  padding: 14px;
+}
+
+.like-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.like-button:hover {
+  transform: scale(1.1);
+}
+
+.like-button:active {
+  transform: scale(0.95);
+}
+
+.like-button svg {
+  width: 28px;
+  height: 28px;
+}
+
+.like-button.liked svg {
+  fill: #ed4956;
+  stroke: #ed4956;
+}
+
+.likes-count {
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+.post-caption {
+  padding: 0 14px 14px;
+  line-height: 1.4;
+}
+
+.post-caption .username {
+  margin-right: 6px;
+}
