@@ -122,11 +122,14 @@ body {
 }
 
 .like-button {
+  display: flex;
+  flex-direction: column;
   background: none;
   border: none;
   padding: 0;
   cursor: pointer;
   transition: transform 0.15s ease;
+  
 }
 
 .like-button:hover {
@@ -140,6 +143,7 @@ body {
 .like-button svg {
   width: 28px;
   height: 28px;
+  
 }
 
 .like-button.liked svg {
@@ -152,7 +156,7 @@ body {
   margin-top: 4px;
 }
 
-.post-caption {
+.post-captions {
   padding: 0 14px 14px;
   line-height: 1.4;
 }
