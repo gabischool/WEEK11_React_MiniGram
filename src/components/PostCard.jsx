@@ -24,11 +24,11 @@ function PostCard(props) {
           <Heart /> {props.likes} Like </button>
       </div>
 
-      <div className="post-caption">
-        <strong>{props.username}</strong> {props.caption}
-      </div>
+    <div className="post-caption">
+      <strong>{props.username}</strong> {props.caption}
     </div>
-  );
+  </div>
+ );
 }
 
 export default PostCard;

@@ -63,9 +63,7 @@ return (
       
       {/* Show the post list here */}
       
-      
- 
-   <PostList posts={posts} onLike={(index) =>handleLike(posts[index].id)} />
+    <PostList posts={posts} onLike={(index) =>handleLike(posts[index].id)} />
     </div>
 
 );

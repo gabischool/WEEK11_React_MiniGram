@@ -11,12 +11,12 @@ import  PostCard  from './PostCard';
         <PostCard  key={index}
         avatar={post.avatar}
         username={post.username}
-          imageUrl={post.imageUrl}
-          caption={post.caption}
-          likes={post.likes}
-          onLike={() => props.onLike(index)}/> 
+        imageUrl={post.imageUrl}
+        caption={post.caption}
+        likes={post.likes}
+        onLike={() => props.onLike(index)}/> 
     
-          ))}
+      ))}
     
       </div>
   )
