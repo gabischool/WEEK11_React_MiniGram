@@ -18,6 +18,7 @@ body {
     Arial, sans-serif;
   background-color: var(--background);
   color: var(--text-primary);
+  
 }
 
 .app {
@@ -77,7 +78,7 @@ body {
 .post-list {
   max-width: 470px;
   margin: 24px auto;
-  padding: 0 20px;
+   padding: 0 20px; 
 }
 
 .post {
@@ -108,7 +109,7 @@ body {
 
 .username {
   font-weight: 600;
-  color: var(--text-primary);
+  color: var(--text-primary);  
 }
 
 .post-image {
@@ -122,11 +123,14 @@ body {
 }
 
 .like-button {
+  display: flex;
+  flex-direction: column;
   background: none;
   border: none;
   padding: 0;
   cursor: pointer;
   transition: transform 0.15s ease;
+  font-size: 18px;
 }
 
 .like-button:hover {
@@ -140,6 +144,7 @@ body {
 .like-button svg {
   width: 28px;
   height: 28px;
+
 }
 
 .like-button.liked svg {
@@ -152,11 +157,13 @@ body {
   margin-top: 4px;
 }
 
-.post-caption {
-  padding: 0 14px 14px;
+.post-captions {
+  padding: 0 14px 14px; 
   line-height: 1.4;
 }
 
 .post-caption .username {
   margin-right: 6px;
 }
+
+
