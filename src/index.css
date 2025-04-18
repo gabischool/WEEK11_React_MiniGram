@@ -109,6 +109,7 @@ body {
 .username {
   font-weight: 600;
   color: var(--text-primary);
+
 }
 
 .post-image {
@@ -127,6 +128,11 @@ body {
   padding: 0;
   cursor: pointer;
   transition: transform 0.15s ease;
+  display: flex;
+  flex-direction: column;
+  grid-column: 10px;
+  margin-bottom: 10px;
+  
 }
 
 .like-button:hover {
@@ -145,17 +151,19 @@ body {
 .like-button.liked svg {
   fill: #ed4956;
   stroke: #ed4956;
+  
 }
 
 .likes-count {
   font-weight: 600;
   margin-top: 4px;
+  
 }
 
 .post-caption {
   padding: 0 14px 14px;
   line-height: 1.4;
-}
+ }
 
 .post-caption .username {
   margin-right: 6px;
