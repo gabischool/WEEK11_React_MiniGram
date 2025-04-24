@@ -1,5 +1,4 @@
 import React from 'react';
-import {Heart} from `lucide-react`;
 
 // Use this heart icon to create the like button
 import { Heart } from 'lucide-react';
