@@ -6,7 +6,17 @@ import { Heart } from 'lucide-react';
 function PostCard({ username, imageUrl, caption, likes, onLike }) {
   return (
     <div className="post">
-     {/* Build your post card here */}
+
+     /* Build your post card here */
+
+     <h3> {username}</h3>
+      <img src={imageUrl} alt="Post" className="post-image" />
+      <p>{caption}</p>
+      <div className="post-footer">
+        <button onClick={onLike} className="like-button">
+          <Heart /> {likes}
+        </button>
+      </div>
     </div>
   );
 }
