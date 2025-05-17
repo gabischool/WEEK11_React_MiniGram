@@ -29,9 +29,27 @@ const initialPosts = [
 
 function App() {
   // Create state to handle the posts
+  const [posts, setPosts] = useState(initialPosts);
+  const [newPost, setNewPost] = useState({
+    username: '',
+    imageUrl: '',
+    caption: '',
+  });
+  const [isEditing, setIsEditing] = useState(false);
+  const [editingPostId, setEditingPostId] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isPostListVisible, setIsPostListVisible] = useState(true);
+  const [isPostFormVisible, setIsPostFormVisible] = useState(false);
+  const [isPostDetailVisible, setIsPostDetailVisible] = useState(false);
+  const [selectedPost, setSelectedPost] = useState(null);
 
   const handleLike = (postId) => {
    // This function should allow you to increase the like count
+    setPosts((prevPosts) =>
+      prevPosts.map((post) =>
+        post.id === postId ? { ...post, likes: post.likes + 1 } : post
+      )
+    );
   };
 
   return (
@@ -49,9 +67,24 @@ function App() {
       </header>
       
       {/* Show the post list here */}
-    
-    </div>
-  );
-}
-
+      <div className="post-list-container">
+        {isPostListVisible && (
+          <div className="post-list">
+            {posts.map((post) => (
+              <div key={post.id} className="post-item">
+                <img src={post.imageUrl} alt={post.caption} className="post-image" />
+                <div className="post-info">
+                  <h2 className="post-username">{post.username}</h2>
+                  <p className="post-caption">{post.caption}</p>
+                  <button onClick={() => handleLike(post.id)} className="like-button">❤️ {post.likes}</button>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+        </div>
+        </div>
+      );
+    }   
+      
 export default App;
