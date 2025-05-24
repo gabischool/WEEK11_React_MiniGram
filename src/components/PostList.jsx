@@ -21,4 +21,6 @@ export function PostList({ posts, onLike }) {
 
     </div>
   );
-}
+};
+
+export default PostList;
