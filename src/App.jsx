@@ -3,6 +3,7 @@ import { Home, PlusSquare, Heart, User } from 'lucide-react';
 
 // Import the postlist component
 
+
 const initialPosts = [
   {
     id: 1,

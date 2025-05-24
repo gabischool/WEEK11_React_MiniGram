@@ -3,6 +3,14 @@ import React from 'react';
 // Use this heart icon to create the like button
 import { Heart } from 'lucide-react';
 
+const App = () => {
+  return (
+    <div>
+      <Heart color="#df2a2a" absoluteStrokeWidth />
+    </div>
+  );
+};
+
 
 function PostCard({ username, imageUrl, caption, likes, onLike }) {
   return (
