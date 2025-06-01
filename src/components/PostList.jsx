@@ -1,11 +1,14 @@
 import React from 'react';
+import PostCard from './PostCard';
 
-// Import the PostCard here
+export function PostList({ posts, onLike }) { 
 
-export function PostList({ posts, onLike }) {
+  console.log (posts) 
   return (
     <div className="post-list">
-     {/* Loop through the posts here and pass to the PostCard */}
+     {posts.map((post) => (
+        <PostCard key={post.id}  likes={post.likes} imageUrl={post.imageUrl} caption={post.caption} username={post.username} postid={post.id} post={post} onLike={onLike} />
+      ))}
     </div>
   );
 }
