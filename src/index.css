@@ -160,3 +160,49 @@ body {
 .post-caption .username {
   margin-right: 6px;
 }
+
+.comment-input{
+  width: 250px;
+  height: 35px;
+  font-size: 17px;
+  padding: 0 10px;
+  border: 2px solid rgba(0, 150, 246, 0.5);
+  border-radius: 5px;
+}
+.comment-input::placeholder {
+  color: var(--text-secondary);
+  font-style: italic;
+  opacity: 0.7;
+}
+
+.comment-input:focus {
+  outline: none;
+  border: 1px solid var(--instagram-blue);
+  box-shadow: 0 0 5px rgba(0, 150, 246, 0.5);
+}
+
+.post-comment-button{
+  width: 90px;
+  height: 35px;
+  background-color: var(--instagram-blue);
+  margin-left: 10px;
+  color: white;
+  border: none;
+  font-size: 20px;
+  border-radius: 5px;
+}
+
+.add-comment-form, .comments-section{
+  margin-left: 10px;
+}
+
+.comments-section{
+  padding: 10px 0;
+}
+
+.comment-username{
+  font-weight: 600;
+  color: var(--text-primary);
+  text-transform: capitalize;
+  font-size: 15px;
+}
