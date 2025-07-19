@@ -3,13 +3,22 @@ import React from "react";
 // Use this heart icon to create the like button
 import { Heart } from "lucide-react";
 
-function PostCard({ username, imageUrl, caption, likes, onLike }) {
+function PostCard({
+  username,
+  imageUrl,
+  caption,
+  likes,
+  onLike,
+  onProfileClick,
+}) {
   const avatarLatter = username.slice(0, 1).toUpperCase();
   return (
     <div className="post">
       {/* Build your post card here */}
       <div className="post-header">
-        <div className="avatar">{avatarLatter}</div>
+        <div className="avatar" onClick={onProfileClick}>
+          {avatarLatter}
+        </div>
         <h3 className="username">{username}</h3>
       </div>
       <img src={imageUrl} alt={caption} className="post-image" />

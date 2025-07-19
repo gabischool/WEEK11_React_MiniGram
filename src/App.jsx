@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Home, PlusSquare, Heart, User } from "lucide-react";
 // Import the postlist component
 import PostList from "./components/PostList";
+import ProfileCard from "./components/ProfileCard";
 const initialPosts = [
   {
     id: 1,
@@ -30,6 +31,10 @@ const initialPosts = [
 ];
 
 function App() {
+  const [selectedProfile, setSelectedProfile] = useState(null);
+  const handleProfileClick = (username) => {
+    setSelectedProfile(username);
+  };
   // Create state to handle the posts
   const [posts, setPosts] = useState(initialPosts);
   const handleLike = (postId) => {
@@ -70,7 +75,21 @@ function App() {
       </header>
 
       {/* Show the post list here */}
-      <PostList posts={posts} setPosts={setPosts} onLike={handleLike} />
+      {/* <PostList posts={posts} setPosts={setPosts} onLike={handleLike} /> */}
+
+      {/* here is where to show user profile cards */}
+      {selectedProfile ? (
+        <ProfileCard
+          username={selectedProfile}
+          onBack={() => setSelectedProfile(null)}
+        />
+      ) : (
+        <PostList
+          posts={posts}
+          onLike={handleLike}
+          onProfileClick={handleProfileClick}
+        />
+      )}
     </div>
   );
 }

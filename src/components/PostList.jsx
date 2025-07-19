@@ -3,7 +3,7 @@ import React from "react";
 // Import the PostCard here
 import PostCard from "./PostCard";
 
-export function PostList({ posts, onLike }) {
+export default function PostList({ posts, onLike, onProfileClick }) {
   return (
     <div className="post-list">
       {/* Loop through the posts here and pass to the PostCard */}
@@ -15,10 +15,11 @@ export function PostList({ posts, onLike }) {
           caption={post.caption}
           likes={post.likes}
           onLike={() => onLike(post.id)}
+          onProfileClick={() => onProfileClick(post.username)}
         />
       ))}
     </div>
   );
 }
 
-export default PostList;
+// export default PostList;
