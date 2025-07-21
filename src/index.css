@@ -160,3 +160,13 @@ body {
 .post-caption .username {
   margin-right: 6px;
 }
+
+.add-comment {
+  display: flex;
+  margin-top: 20px;
+  
+}
+
+.comment-input {
+  flex: 1;
+}
