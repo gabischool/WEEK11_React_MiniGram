@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Home, PlusSquare, Heart, User } from 'lucide-react';
+import PostList from './components/PostList';
 
 // Import the postlist component
 
@@ -29,9 +30,17 @@ const initialPosts = [
 
 function App() {
   // Create state to handle the posts
+  const[posts ,setposts] = useState(initialPosts);
 
   const handleLike = (postId) => {
    // This function should allow you to increase the like count
+   setposts((prevposts) => 
+    prevposts.map((posts) =>
+   posts.id ===postId ?{...posts,likes: post.likes + 1} :post
+
+   
+  )
+  )
   };
 
   return (
@@ -49,7 +58,7 @@ function App() {
       </header>
       
       {/* Show the post list here */}
-    
+    <PostList posts={posts} onLike={handleLike}/>
     </div>
   );
 }
