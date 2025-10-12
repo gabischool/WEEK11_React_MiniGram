@@ -1,11 +1,12 @@
-import React from 'react';
+import PostCard from "./PostCard";
 
-// Import the PostCard here
-
-export function PostList({ posts, onLike }) {
+export default function PostList({ posts, onToggleLike }) {
+  if (!posts?.length) return <p style={{ padding: 12 }}>No posts yet.</p>;
   return (
-    <div className="post-list">
-     {/* Loop through the posts here and pass to the PostCard */}
-    </div>
+    <section className="post-list">
+      {posts.map((post) => (
+        <PostCard key={post.id} post={post} onToggleLike={() => onToggleLike(post.id)} />
+      ))}
+    </section>
   );
 }
