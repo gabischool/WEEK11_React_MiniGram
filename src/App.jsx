@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { Home, PlusSquare, Heart, User } from 'lucide-react';
 
+import { PostList } from './components/PostList';
+
+
 // Import the postlist component
 
 const initialPosts = [
@@ -10,6 +13,7 @@ const initialPosts = [
     imageUrl: 'https://images.unsplash.com/photo-1530789253388-582c481c54b0?auto=format&fit=crop&w=600&q=80',
     caption: '🌅 Chasing sunsets and making memories!',
     likes: 0,
+    comments: [],
   },
   {
     id: 2,
@@ -17,6 +21,7 @@ const initialPosts = [
     imageUrl: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=600&q=80',
     caption: '✈️ Another day, another adventure! #wanderlust',
     likes: 0,
+    comments: [],
   },
   {
     id: 3,
@@ -24,16 +29,47 @@ const initialPosts = [
     imageUrl: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80',
     caption: '🍜 Found this amazing local spot! The flavors are incredible!',
     likes: 0,
+    comments: [],
   },
+
 ];
 
 function App() {
   // Create state to handle the posts
-
+  
+  const [posts, setPosts] = useState(initialPosts)
+  
   const handleLike = (postId) => {
+    
    // This function should allow you to increase the like count
+    const updatePosts = posts.map((post) => 
+    post.id === postId ? { ...post, 
+      likes: post.likes + 1} : post);
+
+    setPosts(updatePosts);
+    
   };
 
+  const [commentInput, setCommentInput] = useState('')
+ 
+   const handleCommentSubmit = (postIdId) => {
+    const updatePosts = posts.map((post) => {
+      if (postIdId === postIdId) {
+        return {
+          ...post, comments: 
+          [...post.comments, commentInput]
+        }
+      }
+      return post
+
+    })
+   setPosts(updatePosts)
+   setCommentInput('')
+
+  }
+  
+  
+ 
   return (
     <div className="app">
       <header className="header">
@@ -49,8 +85,13 @@ function App() {
       </header>
       
       {/* Show the post list here */}
-    
+      <PostList posts={posts} 
+      onLike={handleLike} 
+      onComment={handleCommentSubmit}
+      commentInput={commentInput}
+      setCommentInput={setCommentInput} />
     </div>
+    
   );
 }
 
