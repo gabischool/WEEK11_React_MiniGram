@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Home, PlusSquare, Heart, User } from 'lucide-react';
 
 // Import the postlist component
-
+import PostCard from './components/PostCard';
 const initialPosts = [
   {
     id: 1,
@@ -29,10 +29,26 @@ const initialPosts = [
 
 function App() {
   // Create state to handle the posts
+  const [posts, setPosts] = useState(initialPosts);
 
   const handleLike = (postId) => {
    // This function should allow you to increase the like count
+   const updatedPosts = posts.map(function(post) {
+      if (post.id === postId) {
+        return {
+          id: post.id,
+          username: post.username,
+          imageUrl: post.imageUrl,
+          caption: post.caption,
+          likes: post.likes + 1
+        };
+      }
+      return post;
+    });
+
+    setPosts(updatedPosts);
   };
+  
 
   return (
     <div className="app">
@@ -49,7 +65,18 @@ function App() {
       </header>
       
       {/* Show the post list here */}
-    
+      <main className="post-list">
+        {posts.map((post) => (
+          <PostCard
+            key={post.id}
+            username={post.username}
+            imageUrl={post.imageUrl}
+            caption={post.caption}
+            likes={post.likes}
+            onLike={() => handleLike(post.id)}
+          />
+        ))}
+      </main>
     </div>
   );
 }
