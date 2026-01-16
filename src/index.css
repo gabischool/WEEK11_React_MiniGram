@@ -1,3 +1,6 @@
+@import "tailwindcss";
+
+
 :root {
   --instagram-blue: #0095f6;
   --instagram-gradient: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
@@ -159,4 +162,28 @@ body {
 
 .post-caption .username {
   margin-right: 6px;
+}
+.comment{
+  display: flex;
+  align-items: center;
+  width: 100%; /* or specific width */
+  max-width: 400px;
+}
+.comment input{
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-right: none; 
+  border-radius: 8px 0 0 8px;
+  outline: none;
+}
+
+.comment button{
+  padding: 8px 12px;
+  
+  border-left: none;
+  background-color:black;
+  color: white;
+  border-radius: 0 8px 8px 0; 
+  cursor: pointer;
 }
