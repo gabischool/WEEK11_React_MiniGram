@@ -140,6 +140,7 @@ body {
 .like-button svg {
   width: 28px;
   height: 28px;
+
 }
 
 .like-button.liked svg {

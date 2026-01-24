@@ -1,14 +1,55 @@
 import React from 'react';
-
-// Use this heart icon to create the like button
 import { Heart } from 'lucide-react';
 
-function PostCard({ username, imageUrl, caption, likes, onLike }) {
+
+export  function PostCard({ username, imageUrl, caption, likes, liked, onLike }) {
+
   return (
+
     <div className="post">
-     {/* Build your post card here */}
+      <h3 className="post-username">{username}</h3>
+
+      <img
+        src={imageUrl}
+        alt={caption}
+        className="post-image"
+      />
+
+      <div className="post-actions">
+
+        <button 
+
+   
+        
+        className="like-button" onClick={onLike}>
+
+          <Heart />
+        </button>
+        <span>{likes} likes</span>
+      </div>
+
+      <p className="post-caption">{caption}</p>
     </div>
   );
 }
 
-export default PostCard
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+export default PostCard;
