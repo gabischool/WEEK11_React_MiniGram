@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Home, PlusSquare, Heart, User } from 'lucide-react';
-
-// Import the postlist component
+import PostList from './components/PostList';
 
 const initialPosts = [
   {
@@ -27,11 +26,19 @@ const initialPosts = [
   },
 ];
 
+
+
 function App() {
-  // Create state to handle the posts
+  const [posts, setPosts] = useState(initialPosts);
 
   const handleLike = (postId) => {
-   // This function should allow you to increase the like count
+    setPosts(prevPosts =>
+      prevPosts.map(post =>
+        post.id === postId
+          ? { ...post, likes: post.likes + 1 }
+          : post
+      )
+    );
   };
 
   return (
@@ -39,19 +46,25 @@ function App() {
       <header className="header">
         <div className="header-content">
           <h1 className="header-title">MiniGram</h1>
+         
           <nav className="nav-icons">
-            <button className="nav-button"><Home /></button>
-            <button className="nav-button"><PlusSquare /></button>
-            <button className="nav-button"><Heart /></button>
-            <button className="nav-button"><User /></button>
+            <button><Home /></button>
+            <button><PlusSquare /></button>
+            <button><Heart /></button>
+            <button><User /></button>
           </nav>
         </div>
       </header>
-      
-      {/* Show the post list here */}
-    
+
+      <main className="feed">
+        <PostList posts={posts} onLike={handleLike} />
+      </main>
     </div>
   );
 }
 
 export default App;
+
+
+
+
